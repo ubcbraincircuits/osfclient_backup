@@ -1,2 +1,2 @@
 # osfclient_backup
-A Jupyter notebook tutorial on backing up files to OSF using osfclient for the UBC Brain Circuits Cluster. 
+This Jupyter notebook was created for the UBC Dynamic Brain Circuits Cluster. It outlines the steps needed to back up files to Open Science Framework (OSF) using osfclient.
