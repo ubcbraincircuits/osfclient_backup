@@ -135,7 +135,7 @@ failed_files_list = []
 
 # Then upload each of its contents to osf
 for f in file_list:
-    if f != __file__ and os.path.isfile(f):
+    if f.endswith(".tar") and os.path.isfile(f):
         arguments.source = os.path.join(cwd,f)
         arguments.destination = os.path.join(destination, f)
         if upload_to_osf(arguments):
