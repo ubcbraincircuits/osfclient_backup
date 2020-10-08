@@ -129,20 +129,19 @@ def upload_to_osf(arguments):
 # This script assumes there are no subdirectories. This is a non-recursive upload.
 arguments.recursive = False
 file_list = os.listdir(cwd)
-file_list = [f if ".tar" in f for f in file_list]
+file_list = [f for f in file_list if ".tar" in f and os.path.isfile(f)]
 num_files = len(file_list) - 1
 num_uploaded = 0
 failed_files_list = []
 
 # Then upload each of its contents to osf
 for f in file_list:
-    if ".tar" in f and os.path.isfile(f):
-        arguments.source = os.path.join(cwd,f)
-        arguments.destination = os.path.join(destination, f)
-        if upload_to_osf(arguments):
-            num_uploaded += 1
-            print("Finished " + str(num_uploaded) + "/" + str(num_files))
-        else: 
-            print("FAILED")
-            failed_files_list.append(f)
+    arguments.source = os.path.join(cwd,f)
+    arguments.destination = os.path.join(destination, f)
+    if upload_to_osf(arguments):
+        num_uploaded += 1
+        print("Finished " + str(num_uploaded) + "/" + str(num_files))
+    else: 
+        print("FAILED")
+        failed_files_list.append(f)
 
