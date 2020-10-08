@@ -144,4 +144,5 @@ for f in file_list:
     else: 
         print("FAILED")
         failed_files_list.append(f)
+print(str(len(failed_files_list)) + " files failed to upload.")
 
