@@ -13,18 +13,17 @@ CONSTANTS
 # is not stored.
 import getpass
 
-# USE THIS IF YOU WANT TO INPUT YOUR DETAILS IN THE COMMAND LINE
-user = input("OSF Username: ")
-passwd = getpass.getpass()
-project_guid = input("Project GUID: ")
-destination = input("Destination Folder (leave empty if none): ")
-
 # USE THIS IF YOU WANT TO INPUT YOUR DETAILS IN THE SCRIPT
-# user = '' # Enter OSF USERNAME here
-# passwd = '' #Enter OSF Password here
-# project_guid = '' #Enter Project GUID here. It can be found at the end of the project URL
-# destination = '' #Enter a name for the destination folder. if left blank, it would be same as the current working directory
+user = '' # Enter OSF USERNAME here
+passwd = '' #Enter OSF Password here
+project_guid = '' #Enter Project GUID here. It can be found at the end of the project URL
+destination = '' #Enter a name for the destination folder. if left blank, it would be same as the current working directory
 
+# USE THIS IF YOU WANT TO INPUT YOUR DETAILS IN THE COMMAND LINE
+# user = input("OSF Username: ")
+# passwd = getpass.getpass()
+# project_guid = input("Project GUID: ")
+# destination = input("Destination Folder (leave empty if none): ")
 
 import osfclient
 from osfclient import cli, utils
@@ -144,7 +143,7 @@ for f in file_list:
     else: 
         print("FAILED")
         failed_files_list.append(f)
-print(str(len(failed_files_list)) " of " + str(num_files) + " files failed to upload.")
+print(str(len(failed_files_list)) + " of " + str(num_files) + " files failed to upload.")
 for f in failed_files_list:
     print(f)
 
