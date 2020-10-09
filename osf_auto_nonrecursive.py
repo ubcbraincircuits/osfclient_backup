@@ -130,7 +130,7 @@ def upload_to_osf(arguments):
 arguments.recursive = False
 file_list = os.listdir(cwd)
 file_list = [f for f in file_list if ".tar" in f and os.path.isfile(f)]
-num_files = len(file_list) - 1
+num_files = len(file_list)
 num_uploaded = 0
 failed_files_list = []
 
@@ -144,5 +144,7 @@ for f in file_list:
     else: 
         print("FAILED")
         failed_files_list.append(f)
-print(str(len(failed_files_list)) + " files failed to upload.")
+print(str(len(failed_files_list)) " of " + str(num_files) + " files failed to upload.")
+for f in failed_files_list:
+    print(f)
 
